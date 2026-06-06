@@ -9,5 +9,9 @@ def run_tests():
     resp2 = client.post('/add', json={'i':7, 'j':8})
     print('POST /add ->', resp2.status_code, resp2.get_json())
 
+    # error case
+    resp3 = client.post('/add', json={'i':'x', 'j':5})
+    print('POST /add (invalid) ->', resp3.status_code, resp3.get_json())
+
 if __name__ == '__main__':
     run_tests()

@@ -23,17 +23,21 @@ def add_numbers():
         i = int(i)
         j = int(j)
     except (TypeError, ValueError):
-        return jsonify({
-            "error": "Please provide valid integers for i and j"
-        }), 400
+        return make_json_response(success=False, error="Please provide valid integers for i and j", status=400)
 
     result = i + j
 
-    return jsonify({
-        "i": i,
-        "j": j,
-        "sum": result
-    })
+    return make_json_response(success=True, data={"i": i, "j": j, "sum": result})
+
+
+def make_json_response(success: bool, data: dict = None, error: str = None, status: int = 200):
+    payload = {"success": bool(success)}
+    if success:
+        payload["data"] = data or {}
+    else:
+        payload["error"] = error or ""
+
+    return jsonify(payload), status
 
 
 if __name__ == '__main__':

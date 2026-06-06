@@ -19,7 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = await resp.json();
 
-      resultJson.textContent = JSON.stringify(data, null, 2);
+      const payload = {
+        status: resp.status,
+        ok: resp.ok,
+        body: data
+      };
+
+      resultJson.textContent = JSON.stringify(payload, null, 2);
       resultEl.classList.remove('hidden');
     } catch (err) {
       resultJson.textContent = JSON.stringify({ error: String(err) }, null, 2);
