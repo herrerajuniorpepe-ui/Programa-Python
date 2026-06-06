@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Add Numbers</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Add Two Numbers</h1>
+
+      <form id="calcForm">
+        <label>
+          First number
+          <input type="number" name="i" id="iInput" required>
+        </label>
+
+        <label>
+          Second number
+          <input type="number" name="j" id="jInput" required>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+
+      <section id="result" class="result hidden">
+        <h2>Result</h2>
+        <pre id="resultJson"></pre>
+      </section>
+
+      <footer>
+        <p>Powered by the converted Flask app.</p>
+      </footer>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
